@@ -1,13 +1,63 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<title>DomusW — Casa conectada, conforto garantido.</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DomusW — Casa conectada, conforto garantido.</title>
+  <meta name="description" content="DomusW: automação residencial inteligente em São Paulo. Casa conectada, conforto garantido." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a1522;
+      --bg-2:#08101a;
+      --primary:#00AEEF;
+      --text:#ffffff;
+      --muted:#c7d1dd;
+      --card:#0e1b2b;
+      --shadow: 0 20px 45px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    * {box-sizing: border-box;}
+    html, body {margin:0;height:100%;scroll-behavior:smooth;}
+    body {font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:linear-gradient(180deg,var(--bg),var(--bg-2));}
+    header {
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:saturate(180%) blur(8px);
+      background:linear-gradient(180deg,rgba(10,21,34,.85),rgba(10,21,34,.55));
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .container {max-width:1120px;margin:0 auto;padding:0 20px;}
+    .nav {display:flex;align-items:center;justify-content:space-between;height:68px;}
+    .brand {display:flex;gap:12px;align-items:center;text-decoration:none;color:var(--text);}
+    .logo {width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:radial-gradient(120px 80px at 50% -20%, rgba(0,174,239,.6), transparent 60%), #0b1b2c; box-shadow: inset 0 0 0 1px rgba(255,255,255,.07), 0 8px 22px rgba(0,0,0,.35);}
+    .logo svg {width:22px;height:22px;fill:none;stroke:var(--primary);stroke-width:2;}
+    .brand span {font-weight:700;letter-spacing:.3px;}
+    nav a {color:var(--muted);text-decoration:none;margin-left:18px;font-weight:500;}
+    nav a:hover {color:var(--text);}
+    .cta {margin-left:18px;padding:10px 16px;border-radius:12px;background:linear-gradient(180deg,#08baf7,#0799ca);color:#00121e;text-decoration:none;font-weight:700;box-shadow:0 8px 22px rgba(0,174,239,.28);}
+  </style>
 </head>
 <body>
-<h1>DomusW — Casa conectada, conforto garantido.</h1>
-<p>Site base DomusW. Substitua este conteúdo pelo arquivo HTML completo gerado anteriormente.</p>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#">
+        <div class="logo"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M9 22V12h6v10"/><path d="M16.5 7.5c1.9 1.9 1.9 5 0 6.9"/><path d="M14.3 9.7c.7.7.7 1.9 0 2.6"/></svg></div>
+        <span>DomusW</span>
+      </a>
+      <nav>
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato">Contato</a>
+        <a class="cta" href="https://wa.me/5511962952383" target="_blank" rel="noopener">Peça seu orçamento</a>
+      </nav>
+    </div>
+  </header>
+  <section style='padding:100px;text-align:center;'>
+    <h1>Casa conectada, conforto garantido.</h1>
+    <p>Versão completa do site DomusW — fundo animado e design em azul neon.</p>
+  </section>
 </body>
 </html>
