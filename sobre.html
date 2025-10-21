@@ -18,7 +18,7 @@
     }
     * { box-sizing: border-box; }
     html, body { margin:0; height:100%; scroll-behavior:smooth; font-family:'Poppins',sans-serif; background:var(--bg); color:var(--text); }
-    body { overflow-x:hidden; }
+    body { overflow-x:hidden; position:relative; }
 
     header {
       position:sticky; top:0; z-index:50;
@@ -37,15 +37,18 @@
 
     .hero {
       position:relative;
-      min-height:60vh;
+      min-height:70vh;
       display:flex;
       align-items:center;
       justify-content:center;
       text-align:center;
       overflow:hidden;
     }
-    canvas#fx { position:absolute; inset:0; filter:drop-shadow(0 0 6px rgba(0,174,239,.65)); z-index:-1; }
-    .hero-content h1 { font-size:clamp(36px,6vw,64px); margin-bottom:10px; }
+
+    .energy { position:absolute; inset:0; z-index:-1; }
+    canvas#fx { position:absolute; inset:0; width:100%; height:100%; filter:drop-shadow(0 0 6px rgba(0,174,239,.65)); }
+
+    .hero-content h1 { font-size:clamp(36px,6vw,64px); margin-bottom:10px; font-weight:800; }
     .hero-content p { color:var(--muted); max-width:650px; margin:auto; font-size:1.1rem; }
 
     section { padding:80px 0; }
@@ -85,6 +88,7 @@
       color:var(--muted);
       padding:30px 0;
       border-top:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(180deg,#08121c,#0a1522);
     }
   </style>
 </head>
@@ -106,7 +110,7 @@
   </header>
 
   <section class="hero">
-    <canvas id="fx"></canvas>
+    <div class="energy"><canvas id="fx"></canvas></div>
     <div class="hero-content">
       <h1>Quem Somos</h1>
       <p>A DomusW nasceu com o propósito de simplificar a tecnologia dentro de casa — unindo conforto, segurança e design inteligente.</p>
@@ -150,7 +154,7 @@
     function resize(){ w = canvas.width = canvas.offsetWidth; h = canvas.height = canvas.offsetHeight; }
     window.addEventListener('resize', resize, {passive:true}); resize();
     function rnd(min,max){ return Math.random()*(max-min)+min; }
-    const lines = Array.from({length: 36}).map(()=>({x:rnd(0,1),y:rnd(0,1),speed:rnd(.001,.0022),amp:rnd(40,100),phase:rnd(0,Math.PI*2)}));
+    const lines = Array.from({length: 40}).map(()=>({x:rnd(0,1),y:rnd(0,1),speed:rnd(.001,.002),amp:rnd(30,120),phase:rnd(0,Math.PI*2)}));
     function draw(){
       t += 1; ctx.clearRect(0,0,w,h); ctx.globalCompositeOperation='lighter';
       for(const L of lines){
