@@ -1,137 +1,169 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sobre a DomusW — Conectando pessoas e tecnologia</title>
-  <meta name="description" content="Conheça a DomusW: tecnologia, conforto e automação residencial inteligente.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{--bg:#0a1522;--primary:#00AEEF;--text:#fff;--muted:#c7d1dd}
-    *{box-sizing:border-box}
-    html,body{margin:0;height:100%;scroll-behavior:smooth}
-    body{font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:linear-gradient(180deg,#0a1522,#08101a);color:var(--text);overflow-x:hidden}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DomusW Automação Residencial | Conforto e Tecnologia Inteligente</title> 
+    <meta name="description" content="Transforme sua casa em um lar inteligente com a DomusW. Soluções personalizadas em automação residencial: conforto, segurança e design. Fale conosco!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#0a1522;--primary:#00AEEF;--text:#fff;--muted:#c7d1dd}
+        *{box-sizing:border-box}
+        html,body{margin:0;height:100%;scroll-behavior:smooth}
+        body{font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:linear-gradient(180deg,#0a1522,#08101a);color:var(--text);overflow-x:hidden}
 
-    header{position:sticky;top:0;z-index:10;backdrop-filter:blur(8px) saturate(180%);background:rgba(10,21,34,.75);border-bottom:1px solid rgba(255,255,255,.1);padding:16px 0}
-    .container{max-width:1100px;margin:0 auto;padding:0 20px}
-    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-weight:700}
-    .brand svg{width:28px;height:28px;fill:none;stroke:var(--primary);stroke-width:2}
-    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:500}
-    nav a:hover{color:var(--text)}
+        header{position:sticky;top:0;z-index:10;backdrop-filter:blur(8px) saturate(180%);background:rgba(10,21,34,.75);border-bottom:1px solid rgba(255,255,255,.1);padding:16px 0}
+        .container{max-width:1100px;margin:0 auto;padding:0 20px}
+        .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-weight:700}
+        .brand svg{width:28px;height:28px;fill:none;stroke:var(--primary);stroke-width:2}
+        nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:500}
+        nav a:hover{color:var(--text)}
 
-    .hero{position:relative;min-height:70vh;display:grid;place-items:center;text-align:center;overflow:hidden}
-    .hero-content{position:relative;z-index:1;padding:24px}
-    .hero h1{font-size:clamp(36px,6vw,64px);margin:.2em 0;font-weight:800}
-    .hero p{color:var(--muted);max-width:680px;margin:0 auto 8px;font-size:1.08rem}
+        .hero{position:relative;min-height:70vh;display:grid;place-items:center;text-align:center;overflow:hidden}
+        .hero-content{position:relative;z-index:1;padding:24px}
+        .hero h1{font-size:clamp(36px,6vw,64px);margin:.2em 0;font-weight:800} /* Agora o 800 é suportado */
+        .hero p{color:var(--muted);max-width:680px;margin:0 auto 24px;font-size:1.08rem} /* Aumentei a margem inferior para o CTA */
 
-    /* Canvas de fundo */
-    .energy{position:absolute;inset:0;z-index:0}
-    canvas#fx{position:absolute;inset:0;width:100%;height:100%;display:block;filter:drop-shadow(0 0 6px rgba(0,174,239,.55))}
+        /* Canvas de fundo */
+        .energy{position:absolute;inset:0;z-index:0}
+        canvas#fx{position:absolute;inset:0;width:100%;height:100%;display:block;filter:drop-shadow(0 0 6px rgba(0,174,239,.55))}
 
-    section{padding:80px 0}
-    h2{font-size:2rem;margin:0 0 18px 0;color:var(--primary);text-align:center}
-    .text{color:var(--muted);line-height:1.8;font-size:1.05rem;max-width:850px;margin:0 auto 22px;padding:0 20px}
-    .values{max-width:1100px;margin:40px auto 0;display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));padding:0 20px}
-    .card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:24px;box-shadow:0 8px 24px rgba(0,0,0,.3)}
-    .card h3{color:var(--primary);margin:0 0 10px 0}
-    .back{display:block;width:max-content;margin:50px auto 0;padding:12px 20px;border-radius:12px;background:linear-gradient(180deg,#08baf7,#0799ca);color:#00121e;text-decoration:none;font-weight:700;box-shadow:0 8px 22px rgba(0,174,239,.28)}
-    footer{text-align:center;color:var(--muted);padding:30px 0;border-top:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,#08121c,#0a1522)}
-  </style>
+        section{padding:80px 0}
+        h2{font-size:2rem;margin:0 0 18px 0;color:var(--primary);text-align:center}
+        .text{color:var(--muted);line-height:1.8;font-size:1.05rem;max-width:850px;margin:0 auto 22px;padding:0 20px}
+        .values{max-width:1100px;margin:40px auto 0;display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));padding:0 20px}
+        .card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:24px;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+        .card h3{color:var(--primary);margin:0 0 10px 0}
+
+        /* Classe para o CTA do Hero */
+        .cta{display:inline-block;padding:12px 30px;border-radius:12px;background:linear-gradient(180deg,#08baf7,#0799ca);color:#00121e;text-decoration:none;font-weight:700;box-shadow:0 8px 22px rgba(0,174,239,.28);transition:transform 0.2s}
+        .cta:hover{transform:translateY(-2px)}
+
+        footer{text-align:center;color:var(--muted);padding:30px 0;border-top:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,#08121c,#0a1522)}
+
+        /* --- Início: Responsividade e ajustes mobile --- */
+        @media (max-width: 600px) {
+            header .container {
+                flex-direction: column;
+                gap: 12px;
+            }
+            nav {
+                width: 100%;
+                text-align: center;
+            }
+            nav a {
+                margin: 0 10px;
+            }
+            .hero{
+                min-height: 50vh; /* Menos alto em telas pequenas */
+            }
+            .hero h1 {
+                font-size: clamp(32px, 8vw, 48px);
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            section {
+                padding: 60px 0;
+            }
+        }
+        /* --- Fim: Responsividade --- */
+
+    </style>
 </head>
 <body>
 
-  <header>
-    <div class="container" style="display:flex;align-items:center;justify-content:space-between;">
-      <a class="brand" href="index.html">
-        <svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M9 22V12h6v10"/><path d="M16.5 7.5c1.9 1.9 1.9 5 0 6.9"/><path d="M14.3 9.7c.7.7.7 1.9 0 2.6"/></svg>
-        <span>DomusW</span>
-      </a>
-      <nav>
-        <a href="index.html">Início</a>
-        <a href="sobre.html">Sobre</a>
-        <a href="https://wa.me/5511962952383" target="_blank" rel="noopener">Contato</a>
-      </nav>
-    </div>
-  </header>
+    <header>
+        <div class="container" style="display:flex;align-items:center;justify-content:space-between;">
+            <a class="brand" href="/"> <svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M9 22V12h6v10"/><path d="M16.5 7.5c1.9 1.9 1.9 5 0 6.9"/><path d="M14.3 9.7c.7.7.7 1.9 0 2.6"/></svg>
+                <span>DomusW</span>
+            </a>
+            <nav>
+                <a href="/">Início</a> <a href="sobre.html">Sobre</a>
+                <a href="https://wa.me/5511962952383" target="_blank" rel="noopener">Contato</a>
+            </nav>
+        </div>
+    </header>
 
-  <section class="hero">
-    <div class="energy"><canvas id="fx"></canvas></div>
-    <div class="hero-content">
-      <h1>Quem Somos</h1>
-      <p>A DomusW nasceu com o propósito de simplificar a tecnologia dentro de casa — unindo conforto, segurança e design inteligente.</p>
-    </div>
-  </section>
+    <section class="hero">
+        <div class="energy"><canvas id="fx"></canvas></div>
+        <div class="hero-content">
+            <h1>Automação Residencial<br>Inteligente e Elegante</h1>
+            <p>Conectamos sua vida à tecnologia. Simplifique seu dia a dia com conforto, segurança e design em cada detalhe da sua casa.</p>
+            <a class="cta" href="https://wa.me/5511962952383" target="_blank" rel="noopener">Solicite um Orçamento Agora</a>
+        </div>
+    </section>
 
-  <section>
-    <h2>Nosso Propósito</h2>
-    <div class="text">
-      <p>Fundada por <strong>Willian Silva</strong>, profissional com experiência em elétrica e automação, a DomusW combina conhecimento técnico e paixão por inovação. Cada projeto é pensado para oferecer experiências únicas e um controle total do ambiente residencial.</p>
-      <p>Mais do que instalar dispositivos, criamos soluções personalizadas. Nosso foco é integrar tecnologia à estética e ao conforto, de forma simples e acessível.</p>
-    </div>
+    <section>
+        <h2>Nossa Essência: Tecnologia com Propósito</h2>
+        <div class="text">
+            <p>A **DomusW** nasceu com o propósito de simplificar a tecnologia dentro de casa, unindo conforto, segurança e design. Fundada por **Willian Silva**, profissional com vasta experiência, combinamos conhecimento técnico e paixão por inovação.</p>
+            <p>Mais do que instalar dispositivos, criamos soluções personalizadas. Nosso foco é integrar a tecnologia à estética e ao conforto, de forma simples e acessível, garantindo uma experiência única de controle total do seu ambiente residencial.</p>
+        </div>
 
-    <div class="values">
-      <div class="card"><h3>Missão</h3><p>Levar a automação residencial de forma simples, acessível e elegante, conectando tecnologia e bem-estar.</p></div>
-      <div class="card"><h3>Visão</h3><p>Ser referência em conforto inteligente e design tecnológico no Brasil, transformando o conceito de morar.</p></div>
-      <div class="card"><h3>Valores</h3><p>Inovação, transparência, qualidade e atendimento humanizado — pilares que sustentam cada projeto da DomusW.</p></div>
-    </div>
+        <div class="values">
+            <div class="card"><h3>Missão</h3><p>Levar a automação residencial de forma simples, acessível e elegante, conectando tecnologia e bem-estar.</p></div>
+            <div class="card"><h3>Visão</h3><p>Ser referência em conforto inteligente e design tecnológico no Brasil, transformando o conceito de morar.</p></div>
+            <div class="card"><h3>Valores</h3><p>Inovação, transparência, qualidade e atendimento humanizado — pilares que sustentam cada projeto da DomusW.</p></div>
+        </div>
 
-    <a class="back" href="index.html">⬅️ Voltar à página inicial</a>
-  </section>
+        </section>
 
-  <footer>© 2025 DomusW — Todos os direitos reservados.</footer>
+    <footer>© 2025 DomusW — Todos os direitos reservados.</footer>
 
-  <script>
-    // Canvas animado – robusto e responsivo
-    const canvas = document.getElementById('fx');
-    const ctx = canvas.getContext('2d');
-    let w, h, t = 0, dpr = Math.max(window.devicePixelRatio || 1, 1);
+    <script>
+        // Canvas animado – robusto e responsivo
+        const canvas = document.getElementById('fx');
+        const ctx = canvas.getContext('2d');
+        let w, h, t = 0, dpr = Math.max(window.devicePixelRatio || 1, 1);
 
-    function sizeCanvas(){
-      const cssW = canvas.clientWidth || window.innerWidth;
-      const cssH = canvas.clientHeight || Math.max(window.innerHeight * 0.7, 400);
-      w = Math.floor(cssW * dpr);
-      h = Math.floor(cssH * dpr);
-      canvas.width = w; canvas.height = h;
-      ctx.setTransform(dpr,0,0,dpr,0,0); // escala para alta densidade
-    }
-    window.addEventListener('resize', sizeCanvas, {passive:true});
-    sizeCanvas();
-
-    function rnd(min,max){ return Math.random()*(max-min)+min }
-    const lines = Array.from({length:40}).map(()=>({
-      x:rnd(0,1), y:rnd(0,1), speed:rnd(.001,.002), amp:rnd(30,120), phase:rnd(0,Math.PI*2)
-    }));
-
-    function draw(){
-      t += 1;
-      ctx.clearRect(0,0,canvas.clientWidth,canvas.clientHeight);
-      ctx.globalCompositeOperation = 'lighter';
-
-      for(const L of lines){
-        const baseX = L.x * canvas.clientWidth;
-        const baseY = L.y * canvas.clientHeight;
-        ctx.beginPath();
-        const grad = ctx.createLinearGradient(baseX-220, baseY-80, baseX+220, baseY+80);
-        grad.addColorStop(0, 'rgba(0,174,239,0)');
-        grad.addColorStop(.15, 'rgba(0,174,239,.25)');
-        grad.addColorStop(.5, 'rgba(0,174,239,.85)');
-        grad.addColorStop(.85, 'rgba(0,174,239,.25)');
-        grad.addColorStop(1, 'rgba(0,174,239,0)');
-        ctx.strokeStyle = grad;
-        ctx.lineWidth = 2.2;
-
-        for(let i=-220;i<=220;i+=8){
-          const x = baseX + i;
-          const y = baseY + Math.sin((i*0.04) + (t*L.speed*38) + L.phase) * L.amp * Math.exp(-Math.abs(i)/260);
-          if(i===-220) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+        function sizeCanvas(){
+            const cssW = canvas.clientWidth || window.innerWidth;
+            const cssH = canvas.clientHeight || Math.max(window.innerHeight * 0.7, 400);
+            w = Math.floor(cssW * dpr);
+            h = Math.floor(cssH * dpr);
+            canvas.width = w; canvas.height = h;
+            ctx.setTransform(dpr,0,0,dpr,0,0); // escala para alta densidade
         }
-        ctx.stroke();
-      }
-      requestAnimationFrame(draw);
-    }
-    draw();
-  </script>
+        window.addEventListener('resize', sizeCanvas, {passive:true});
+        sizeCanvas();
+
+        function rnd(min,max){ return Math.random()*(max-min)+min }
+        const lines = Array.from({length:40}).map(()=>({
+            x:rnd(0,1), y:rnd(0,1), speed:rnd(.001,.002), amp:rnd(30,120), phase:rnd(0,Math.PI*2)
+        }));
+
+        function draw(){
+            t += 1;
+            // Corrigido para usar w e h (dimensões com dpr)
+            ctx.clearRect(0, 0, w, h); 
+            ctx.globalCompositeOperation = 'lighter';
+
+            for(const L of lines){
+                const baseX = L.x * canvas.clientWidth;
+                const baseY = L.y * canvas.clientHeight;
+                ctx.beginPath();
+                const grad = ctx.createLinearGradient(baseX-220, baseY-80, baseX+220, baseY+80);
+                grad.addColorStop(0, 'rgba(0,174,239,0)');
+                grad.addColorStop(.15, 'rgba(0,174,239,.25)');
+                grad.addColorStop(.5, 'rgba(0,174,239,.85)');
+                grad.addColorStop(.85, 'rgba(0,174,239,.25)');
+                grad.addColorStop(1, 'rgba(0,174,239,0)');
+                ctx.strokeStyle = grad;
+                ctx.lineWidth = 2.2;
+
+                for(let i=-220;i<=220;i+=8){
+                    const x = baseX + i;
+                    const y = baseY + Math.sin((i*0.04) + (t*L.speed*38) + L.phase) * L.amp * Math.exp(-Math.abs(i)/260);
+                    if(i===-220) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+                }
+                ctx.stroke();
+            }
+            requestAnimationFrame(draw);
+        }
+        draw();
+    </script>
 </body>
 </html>
